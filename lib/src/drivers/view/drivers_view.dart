@@ -1,74 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:move_bus/src/components/assets_images.dart';
-import 'package:move_bus/src/components/buttons/main_button.dart';
-import 'package:move_bus/src/components/cards/main_card.dart';
-import 'package:move_bus/src/components/spacing/spacing.dart';
+
 import 'package:move_bus/src/components/styles/colors.dart';
-import 'package:move_bus/src/drivers/view/drivers_view.dart';
-import 'package:move_bus/src/home/home_controller.dart';
-import 'package:move_bus/src/home/models/buslist_model.dart';
-import 'package:move_bus/src/layout/view/seatlayout_view.dart';
-import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget {
-  static const routName = '/home';
+import '../../components/assets_images.dart';
+import '../../components/spacing/spacing.dart';
 
-  const HomePage({super.key});
+class DriversView extends StatelessWidget {
+  static const routName = '/drivers';
+
+  const DriversView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = context.watch<HomeController>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: black2b,
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child: Image.asset(
-            ImagesAssets().logo,
-            height: 35,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: whileclr,
           ),
         ),
+        title: Text('Driver List',
+            style: TextStyle(color: whileclr, fontSize: 16)),
       ),
       body: ListView(
-        padding: EdgeInsets.only(top: 19, right: 15, left: 15),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         children: [
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                MainCard(
-                    cardColor: primaryColor,
-                    subTitle: 'Manage your bus',
-                    title: 'Bus',
-                    assestimg: ImagesAssets().bus),
-                WSpace(10),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, DriversView.routName);
-                  },
-                  child: MainCard(
-                      cardColor: black2b,
-                      subTitle: 'Manage your driver',
-                      title: 'Driver',
-                      assestimg: ImagesAssets().driver),
-                )
-              ],
-            ),
-          ),
-          HSpace(10),
           Text(
-            '${controller.busList.length} Bus Found',
+            '21  Drivers found',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
           ),
-          SizedBox(
-            height: 10,
-          ),
           ListView.builder(
+              itemCount: 6,
               shrinkWrap: true,
-              itemCount: controller.busList.length,
-              itemBuilder: (context, index) {
+              itemBuilder: (c, i) {
                 return Container(
                   margin: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
@@ -90,17 +59,17 @@ class HomePage extends StatelessWidget {
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(10),
                                   bottomLeft: Radius.circular(10))),
-                          child: Image.asset(ImagesAssets().smallBus)),
+                          child: Image.asset(ImagesAssets().elipse)),
                       WSpace(5),
                       SizedBox(
                         width: 148,
-                        child: Text('KSRTC\nSwift Scania P-series'),
+                        child: Text('Rohit sharma'),
                       ),
                       Spacer(),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, LayoutView.routeName,
-                              arguments: controller.busList[index]);
+                          // Navigator.pushNamed(context, LayoutView.routeName,
+                          //     arguments: controller.busList[index]);
                         },
                         child: Container(
                           width: 70,
@@ -112,7 +81,7 @@ class HomePage extends StatelessWidget {
                           ),
                           child: Center(
                               child: Text(
-                            'Manage',
+                            'Delete',
                             style: TextStyle(color: whileclr),
                           )),
                         ),

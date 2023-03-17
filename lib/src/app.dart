@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:move_bus/src/auth/view/login_view.dart';
 import 'package:move_bus/src/components/styles/colors.dart';
+import 'package:move_bus/src/drivers/view/drivers_view.dart';
 import 'package:move_bus/src/get_started_view.dart';
 import 'package:move_bus/src/home/view/home_screen.dart';
 import 'package:move_bus/src/layout/view/seatlayout_view.dart';
@@ -40,7 +41,10 @@ class MyApp extends StatelessWidget {
                   return const HomePage();
                 case LayoutView.routeName:
                   return const LayoutView();
-                default:
+                case DriversView.routName:
+                  return const DriversView();
+             default:
+
                   return const GetStarted();
               }
             });

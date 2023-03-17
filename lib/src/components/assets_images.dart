@@ -4,4 +4,5 @@ class ImagesAssets {
   final String driver = 'assets/images/driver.png';
   final String smallBus = 'assets/images/smallbus.png';
   final String polygun = 'assets/images/Polygon.png';
+  final String elipse = 'assets/images/Ellipse.png';
 }
