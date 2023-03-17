@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:move_bus/src/auth/view/login_view.dart';
 
 import 'package:move_bus/src/components/assets_images.dart';
 import 'package:move_bus/src/components/buttons/main_button.dart';
@@ -19,7 +20,13 @@ class GetStarted extends StatelessWidget {
           const SizedBox(
             height: 300,
           ),
-          const Align(alignment: Alignment.bottomCenter, child: MainButton())
+          Align(
+              alignment: Alignment.bottomCenter,
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, LoginScreen.routeName);
+                  },
+                  child: MainButton()))
         ],
       ),
     );

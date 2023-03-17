@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:move_bus/src/auth/view/login_view.dart';
 import 'package:move_bus/src/components/styles/colors.dart';
 import 'package:move_bus/src/get_started_view.dart';
+import 'package:move_bus/src/home/view/home_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,10 +15,11 @@ class MyApp extends StatelessWidget {
       title: 'moovbe',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          useMaterial3: true,
           colorScheme: ColorScheme.light(
             primary: primaryColor,
           ),
-          textTheme:const TextTheme(
+          textTheme: const TextTheme(
             headline1: TextStyle(
               fontFamily: "Axiforma",
             ),
@@ -30,6 +33,10 @@ class MyApp extends StatelessWidget {
               switch (routeSettings.name) {
                 case GetStarted.routeName:
                   return const GetStarted();
+                case LoginScreen.routeName:
+                  return const LoginScreen();
+                case HomePage.routName:
+                  return const HomePage();
                 default:
                   return const GetStarted();
               }
