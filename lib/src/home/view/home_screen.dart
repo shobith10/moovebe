@@ -7,6 +7,8 @@ import 'package:move_bus/src/components/cards/main_card.dart';
 import 'package:move_bus/src/components/spacing/spacing.dart';
 import 'package:move_bus/src/components/styles/colors.dart';
 import 'package:move_bus/src/home/home_controller.dart';
+import 'package:move_bus/src/home/models/buslist_model.dart';
+import 'package:move_bus/src/layout/view/seatlayout_view.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -97,19 +99,25 @@ class HomePage extends StatelessWidget {
                       //   ],
                       // ),
                       Spacer(),
-                      Container(
-                        width: 70,
-                        height: 30,
-                        margin: EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: primaryColor,
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, LayoutView.routeName,
+                              arguments: controller.busList[index]);
+                        },
+                        child: Container(
+                          width: 70,
+                          height: 30,
+                          margin: EdgeInsets.only(right: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            color: primaryColor,
+                          ),
+                          child: Center(
+                              child: Text(
+                            'Manage',
+                            style: TextStyle(color: whileclr),
+                          )),
                         ),
-                        child: Center(
-                            child: Text(
-                          'Manage',
-                          style: TextStyle(color: whileclr),
-                        )),
                       )
                     ],
                   ),

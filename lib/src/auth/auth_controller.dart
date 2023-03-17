@@ -4,8 +4,8 @@ import 'package:move_bus/src/auth/models/auth_model.dart';
 import 'package:move_bus/src/home/view/home_screen.dart';
 
 class AuthController extends ChangeNotifier {
-  TextEditingController username = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController username = TextEditingController(text: 'admin_user');
+  TextEditingController password = TextEditingController(text: '123admin789');
 
   bool? _isLoading;
   bool? get isLoading => _isLoading;

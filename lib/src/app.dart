@@ -5,6 +5,7 @@ import 'package:move_bus/src/auth/view/login_view.dart';
 import 'package:move_bus/src/components/styles/colors.dart';
 import 'package:move_bus/src/get_started_view.dart';
 import 'package:move_bus/src/home/view/home_screen.dart';
+import 'package:move_bus/src/layout/view/seatlayout_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -37,6 +38,8 @@ class MyApp extends StatelessWidget {
                   return const LoginScreen();
                 case HomePage.routName:
                   return const HomePage();
+                case LayoutView.routeName:
+                  return const LayoutView();
                 default:
                   return const GetStarted();
               }
