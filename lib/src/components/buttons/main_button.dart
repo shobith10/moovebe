@@ -4,13 +4,24 @@ class MainButton extends StatelessWidget {
   final Color? buttonColor;
   final String? lable;
   final Color? textColor;
-  const MainButton({super.key, this.buttonColor, this.lable, this.textColor});
+  final double? hght;
+  final double? wdth;
+  final TextStyle? txtStyle;
+  const MainButton({
+    super.key,
+    this.buttonColor,
+    this.lable,
+    this.textColor,
+    this.hght,
+    this.wdth,
+    this.txtStyle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 58,
-      width: MediaQuery.of(context).size.width - 60,
+      height: hght ?? 58,
+      width: wdth ?? MediaQuery.of(context).size.width - 60,
       //padding: EdgeInsets.symmetric(vertical: 14,),
       margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
       decoration: BoxDecoration(
@@ -19,10 +30,11 @@ class MainButton extends StatelessWidget {
       child: Center(
         child: Text(
           lable ?? 'Get Started',
-          style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              color: textColor ?? Colors.black),
+          style: txtStyle ??
+              TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: textColor ?? Colors.black),
         ),
       ),
     );
