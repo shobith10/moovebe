@@ -24,7 +24,7 @@ class GetStarted extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, LoginScreen.routeName);
+                    Navigator.pushNamed(context, LoginScreen.routeName, arguments: ArgumentClass(welcome: 'melcowe'));
                   },
                   child: MainButton()))
         ],

@@ -9,14 +9,20 @@ import 'package:provider/provider.dart';
 
 import '../auth_controller.dart';
 
+class ArgumentClass {
+  String? welcome;
+  ArgumentClass({this.welcome});
+}
+
 class LoginScreen extends StatelessWidget {
   static const routeName = '/login';
-  const LoginScreen({super.key});
+  LoginScreen({super.key, this.usernanel});
 
+  String? usernanel;
   @override
   Widget build(BuildContext context) {
     final controller = context.watch<AuthController>();
-
+    final args = ModalRoute.of(context)!.settings.arguments as ArgumentClass;
     return Scaffold(
       backgroundColor: whileclr,
       body: controller.isLoading ?? false
@@ -42,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Welcome',
+                              args.welcome ?? 'welcome',
                               style: TextStyle(
                                   fontSize: 41,
                                   fontWeight: FontWeight.w700,

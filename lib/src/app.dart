@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
                 case GetStarted.routeName:
                   return const GetStarted();
                 case LoginScreen.routeName:
-                  return const LoginScreen();
+                  return  LoginScreen();
                 case HomePage.routName:
                   return const HomePage();
                 case LayoutView.routeName:
